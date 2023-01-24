@@ -76,7 +76,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
          Sample output:
 
-         ```
+         ```{.text .no-copy}
          percona-server-mongodb | 4.2.9-9.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
          percona-server-mongodb | 4.2.8-8.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
          percona-server-mongodb | 4.2.7-7.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages

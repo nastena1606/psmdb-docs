@@ -3,6 +3,7 @@ on:
   push:
     branches: 
       - 6.0
+      - Test-linter
      
 jobs:
   build:
@@ -46,4 +47,21 @@ jobs:
           mike deploy 6.0 -b publish -p
           mike set-default 6.0 -b publish -p
           mike retitle 6.0 "6.0.6-5 (LATEST)" -b publish -p
+
+      # Check grammar and spelling
+      - name: Install Node.js 14.x
+        uses: actions/setup-node@v3
+        with:
+           node-version: "14"
+     
+      - name: Spelling
+        run: |
+          npx markdown-spellcheck --report --en-us --ignore-acronyms --ignore-numbers "docs/**/*.md" || true
+         # Ignore errors, just inspect results
+      - name: Grammar
+        run: |
+          npx write-good --no-passive docs/**/*.md || true
+          # Ignore errors, just inspect results
+
+          
 
